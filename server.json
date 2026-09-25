@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.pipeworx-io/usda-soil",
+  "title": "Usda Soil",
+  "description": "USDA-NRCS Soil Data Access over SSURGO, the field-surveyed US soil map — the soil at any US…",
+  "version": "0.1.0",
+  "websiteUrl": "https://pipeworx.io/packs/usda-soil",
+  "repository": {
+    "url": "https://github.com/pipeworx-io/mcp-usda-soil",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://gateway.pipeworx.io/usda-soil/mcp"
+    }
+  ]
+}
