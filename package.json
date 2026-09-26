@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-usda-soil",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "USDA-NRCS Soil Data Access over SSURGO, the field-surveyed US soil map — the soil at any US coordinate, the named soil series inside a map unit with their taxonomy, drainage, slope and depth horizons, and SQL over the full survey schema.",
   "type": "module",
   "main": "src/index.ts",
@@ -26,7 +26,7 @@
     "@cloudflare/workers-types": "^4.20260405.1"
   },
   "pipeworx": {
-    "sourceHash": "v1-4e97330f783257f67a063ddc2328969238587ec1ed13e40d747ea5db5b704f43",
-    "sourceCommit": "b0fb3c31386cf0256dcf1e2f1b3440435a87ec35"
+    "sourceHash": "v1-b50e60504e33b0f69b980aabd942be75cf6824fdca541553e99be520213554aa",
+    "sourceCommit": "66a0692f029179984440cef6938cba7fdd41d66d"
   }
 }

@@ -5,7 +5,7 @@ field crews at 1:12,000-1:63,360 and republished annually. Soil at a point,
 the named soil series inside a map unit with their properties and horizons, and
 arbitrary SQL over the full survey schema.
 
-Part of [Pipeworx](https://pipeworx.io) — an MCP gateway connecting AI agents to 1679+ live data sources.
+Part of [Pipeworx](https://pipeworx.io) — an MCP gateway connecting AI agents to 1684+ live data sources.
 
 ## Tools
 
@@ -99,7 +99,7 @@ directly, instead of just this one's:
 }
 ```
 
-Both URLs reach the same gateway and the same 1679+ data sources. The
+Both URLs reach the same gateway and the same 1684+ data sources. The
 only difference is which pack's tools are listed **directly**; `ask_pipeworx`
 reaches all of them from either one.
 
