@@ -1,0 +1,59 @@
+[
+  {
+    "name": "usda_soil_mapunit_at_point",
+    "description": "The USDA-NRCS SSURGO soil map unit at one latitude/longitude in the United States — map unit key (mukey), symbol, the official map unit name (\"Terril-Urban land complex, 2 to 5 percent slopes\"), its acreage, and the soil survey area it belongs to. AUTHORITATIVE for \"what soil is on this parcel\" in the US: field-surveyed, not modelled. Keyless. Pass the mukey to usda_soil_components for the soil series and their properties.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "lat": {
+          "type": "number",
+          "description": "Latitude in decimal degrees, WGS84 (e.g. 41.6)."
+        },
+        "lon": {
+          "type": "number",
+          "description": "Longitude in decimal degrees, WGS84, negative in the US (e.g. -93.6)."
+        }
+      },
+      "required": [
+        "lat",
+        "lon"
+      ]
+    }
+  },
+  {
+    "name": "usda_soil_components",
+    "description": "The soil components inside one USDA SSURGO map unit — each named soil series with its percentage of the unit, official taxonomic class, drainage class, slope range, hydrologic soil group, land capability class and runoff potential. Answers \"what soil series is this and how does it drain/behave\". Keyless. Get the mukey from usda_soil_mapunit_at_point.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "mukey": {
+          "type": "string",
+          "description": "SSURGO map unit key, e.g. \"412898\". From usda_soil_mapunit_at_point."
+        },
+        "include_horizons": {
+          "type": "boolean",
+          "description": "Also return the soil horizons (depth layers) for each component with sand/silt/clay percentages, organic matter, pH and available water capacity. Default false."
+        }
+      },
+      "required": [
+        "mukey"
+      ]
+    }
+  },
+  {
+    "name": "usda_soil_query",
+    "description": "Run a read-only SQL SELECT against the USDA-NRCS Soil Data Access database (SSURGO) — the full US soil survey schema: legend, mapunit, component, chorizon, cointerp, plus the SDA_ spatial helper functions such as SDA_Get_Mukey_from_intersection_with_WktWgs84. Use for anything the point and component tools do not cover: soil series by county, prime farmland acreage, drainage class distributions, crop yield indices. Keyless.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "sql": {
+          "type": "string",
+          "description": "A T-SQL SELECT, e.g. \"SELECT TOP 10 m.muname, m.muacres FROM mapunit m INNER JOIN legend l ON l.lkey = m.lkey WHERE l.areasymbol = 'IA153' ORDER BY m.muacres DESC\". SELECT only. Use TOP n rather than LIMIT — this is SQL Server."
+        }
+      },
+      "required": [
+        "sql"
+      ]
+    }
+  }
+]
